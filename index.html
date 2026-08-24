@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  E4 PARTNERS - HOMEPAGE
+  ============================================================================
+  Statische multi-page site, geen build step, geen framework-dependencies.
+  CSS/JS zijn gedeeld via /assets/css/styles.css en /assets/js/main.js zodat
+  de browser ze eenmalig cacht over alle pagina's heen.
+  Externe resources: Google Fonts (Poppins + Montserrat).
+
+  STRUCTUUR
+    1. Nav          - fixed, transparant over hero, wordt beige na 80px scroll
+    2. Hero         - full-bleed foto + donkere gradient overlay
+    3. Diensten     - accordion (3 diensten) + foto (zie SLUGS hieronder)
+    4. Logostrip    - marquee met klantlogo's (grayscale, kleur bij hover)
+    5. Over ons     - 2 kolommen: tekst + 3 stat-blokken
+    6. Testimonials - 3 kaarten (placeholder-content)
+    7. CTA-banner   - 2 kolommen + compact contactformulier
+    8. Footer       - 4 kolommen + bottom bar
+
+  DYNAMIEK: scroll-reveal (IntersectionObserver), marquee-animatie,
+            hover micro-interacties. Alles respecteert prefers-reduced-motion.
+
+  DESIGN TOKENS: zie :root in assets/css/styles.css. Alle kleuren via CSS-variabelen.
+  Fonts: Poppins = headings, Montserrat = body/nav/labels/buttons.
+
+  TAAL: NL/EN via data-nl / data-en attributen + de toggle rechtsboven.
+        Bij ombouw naar React: vervang dit door context/state.
+
+  SLUGS (diensten-detailpagina's):
+    /diensten/recruitment-process-outsourcing
+    /diensten/interim-recruitment
+    /diensten/werving-selectie
+
+  TODO - PLACEHOLDERS DIE VERVANGEN MOETEN WORDEN:
+    [3] Testimonials: placeholder-quotes en namen (nog te vervangen).
+    (Gedaan: logo, hero-foto, contactgegevens/KvK in de footer.)
+
+  RESPONSIVE: breakpoints op 1024px (tablet) en 768px (mobiel).
+  ============================================================================
+-->
+<html lang="nl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>E4 Partners | Recruitment & Talent</title>
+<meta name="description" data-nl="E4 Partners is gespecialiseerd in Tech &amp; IT recruitment: recruitment process outsourcing, interim recruitment en werving &amp; selectie." data-en="E4 Partners specialises in Tech &amp; IT recruitment: recruitment process outsourcing, interim recruitment and recruitment &amp; selection." content="E4 Partners is gespecialiseerd in Tech &amp; IT recruitment: recruitment process outsourcing, interim recruitment en werving &amp; selectie."/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="E4 Partners | Recruitment &amp; Talent"/>
+<meta property="og:description" content="E4 Partners is gespecialiseerd in Tech &amp; IT recruitment: recruitment process outsourcing, interim recruitment en werving &amp; selectie."/>
+<meta property="og:url" content="https://www.e4partners.nl/"/>
+<meta property="og:locale" content="nl_NL"/>
+<link rel="canonical" href="https://www.e4partners.nl/"/>
+<meta property="og:image" content="https://www.e4partners.nl/assets/img/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon-512.png"/>
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="/">
+    <img src="assets/img/logo-white.png" alt="E4 Partners" class="logo-img logo-white"/>
+    <img src="assets/img/logo-black.png" alt="E4 Partners" class="logo-img logo-black"/>
+  </a>
+  <div class="nav-links">
+    <a href="/" data-nl="Home" data-en="Home">Home</a>
+    <a href="/diensten" data-nl="Diensten" data-en="Services">Diensten</a>
+    <a href="/over-ons" data-nl="Over ons" data-en="About us">Over ons</a>
+    <a href="/cases" data-nl="Cases" data-en="Cases">Cases</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-cta" href="/contact" data-nl="Contact" data-en="Contact">Contact</a>
+    <button class="lang-btn" id="langBtn" aria-label="Taal wisselen"></button>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Sluiten">&times;</button>
+  <a href="/" data-nl="Home" data-en="Home">Home</a>
+  <a href="/diensten" data-nl="Diensten" data-en="Services">Diensten</a>
+  <a href="/over-ons" data-nl="Over ons" data-en="About us">Over ons</a>
+  <a href="/cases" data-nl="Cases" data-en="Cases">Cases</a>
+  <a href="/contact" data-nl="Contact" data-en="Contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label" data-nl="Recruitment & Talent Partners" data-en="Recruitment & Talent Partners">Recruitment & Talent Partners</div>
+    <h1 data-nl="De juiste zet binnen recruitment" data-en="The right move in recruitment">De juiste zet binnen recruitment</h1>
+    <p class="hero-sub" data-nl="Specialisten in Tech & IT recruitment. Wij verbinden organisaties met de juiste mensen, via recruitment process outsourcing, interim recruitment en werving & selectie." data-en="Specialists in Tech & IT recruitment. We connect organisations with the right people, through recruitment process outsourcing, interim recruitment and recruitment & selection.">Specialisten in Tech & IT recruitment. Wij verbinden organisaties met de juiste mensen, via recruitment process outsourcing, interim recruitment en werving & selectie.</p>
+    <div class="hero-buttons">
+      <a class="btn-primary" href="/contact" data-nl="Neem contact op" data-en="Get in touch">Neem contact op</a>
+      <a class="btn-secondary" href="/diensten" data-nl="Onze diensten" data-en="Our services">Onze diensten</a>
+    </div>
+  </div>
+</section>
+
+<!-- DIENSTEN (accordion) -->
+<section class="services diensten-acc">
+  <div class="acc-grid">
+    <div class="acc-left">
+      <div class="section-label" data-nl="Diensten" data-en="Services">Diensten</div>
+      <h2 data-nl="Zo helpen we jouw organisatie verder" data-en="How we help your organisation forward">Zo helpen we jouw organisatie verder</h2>
+      <div class="acc-list">
+        <div class="acc-item">
+          <button class="acc-row" type="button"><span class="acc-name">Recruitment Process Outsourcing</span><span class="acc-chev"></span></button>
+          <div class="acc-panel">
+            <p data-nl="Besteed (een deel van) uw werving uit - wij bouwen en draaien een schaalbaar recruitmentproces, embedded in uw organisatie." data-en="Outsource (part of) your hiring - we build and run a scalable recruitment process, embedded in your organisation.">Besteed (een deel van) uw werving uit - wij bouwen en draaien een schaalbaar recruitmentproces, embedded in uw organisatie.</p>
+            <a href="/diensten/recruitment-process-outsourcing" data-nl="Meer lezen &rarr;" data-en="Read more &rarr;">Meer lezen &rarr;</a>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-row" type="button"><span class="acc-name">Interim Recruitment</span><span class="acc-chev"></span></button>
+          <div class="acc-panel">
+            <p data-nl="Een ervaren interim recruiter die tijdelijk uw wervingscapaciteit versterkt of overneemt, direct inzetbaar." data-en="An experienced interim recruiter who temporarily strengthens or takes over your hiring capacity, immediately deployable.">Een ervaren interim recruiter die tijdelijk uw wervingscapaciteit versterkt of overneemt, direct inzetbaar.</p>
+            <a href="/diensten/interim-recruitment" data-nl="Meer lezen &rarr;" data-en="Read more &rarr;">Meer lezen &rarr;</a>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-row" type="button"><span class="acc-name" data-nl="Werving &amp; Selectie" data-en="Recruitment &amp; Selection">Werving &amp; Selectie</span><span class="acc-chev"></span></button>
+          <div class="acc-panel">
+            <p data-nl="Gerichte, kwalitatieve search voor vaste rollen van medior tot C-level. U betaalt pas bij een succesvolle plaatsing." data-en="Targeted, quality search for permanent roles from medior to C-level. You only pay upon a successful placement.">Gerichte, kwalitatieve search voor vaste rollen van medior tot C-level. U betaalt pas bij een succesvolle plaatsing.</p>
+            <a href="/diensten/werving-selectie" data-nl="Meer lezen &rarr;" data-en="Read more &rarr;">Meer lezen &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="acc-photo"><img loading="lazy" src="assets/img/diensten-foto.jpg" alt="E4 Partners"/></div>
+  </div>
+</section>
+
+<!-- LOGO MARQUEE -->
+<section class="logos">
+  <div class="logos-label" data-nl="Organisaties die we hielpen" data-en="Organisations we've helped">Organisaties die we hielpen</div>
+  <div class="marquee-viewport">
+    <div class="marquee" id="logoMarquee">
+      <span class="marquee-item"><img loading="lazy" class="marquee-logo" src="assets/img/logos/xebia.png" alt="Xebia"/></span>
+      <span class="marquee-item"><img loading="lazy" class="marquee-logo" src="assets/img/logos/feadship.png" alt="Feadship"/></span>
+      <span class="marquee-item"><img loading="lazy" class="marquee-logo" src="assets/img/logos/infi.png" alt="Infi"/></span>
+      <span class="marquee-item"><img loading="lazy" class="marquee-logo" src="assets/img/logos/follo.png" alt="Follo"/></span>
+      <span class="marquee-item"><img loading="lazy" class="marquee-logo" src="assets/img/logos/sherpa.png" alt="Sherpa"/></span>
+      <span class="marquee-item"><img loading="lazy" class="marquee-logo" src="assets/img/logos/edsn.png" alt="EDSN"/></span>
+      <span class="marquee-item"><img loading="lazy" class="marquee-logo" src="assets/img/logos/i3d-net.png" alt="i3D.net"/></span>
+      <span class="marquee-item"><img loading="lazy" class="marquee-logo" src="assets/img/logos/adapta.png" alt="Adapta"/></span>
+      <span class="marquee-item"><img loading="lazy" class="marquee-logo" src="assets/img/logos/advidi.png" alt="Advidi"/></span>
+      <span class="marquee-item"><img loading="lazy" class="marquee-logo" src="assets/img/logos/aihr.png" alt="AIHR"/></span>
+      <span class="marquee-item"><img loading="lazy" class="marquee-logo" src="assets/img/logos/bris.png" alt="Bris"/></span>
+      <span class="marquee-item"><img loading="lazy" class="marquee-logo" src="assets/img/logos/dawn.png" alt="Dawn"/></span>
+      <span class="marquee-item"><img loading="lazy" class="marquee-logo" src="assets/img/logos/illionx.webp" alt="Illionx"/></span>
+      <span class="marquee-item"><img loading="lazy" class="marquee-logo" src="assets/img/logos/bits-of-stock.png" alt="Bits of Stock"/></span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-left">
+    <div class="about-label" data-nl="Over ons" data-en="About us">Over ons</div>
+    <h2 data-nl="Strategie staat centraal" data-en="Strategy comes first">Strategie staat centraal</h2>
+    <p class="about-body" data-nl="E4 verwijst naar de bekende schaakopening: de juiste openingszet. Zo benaderen wij ook recruitment. Als specialisten in Tech & IT verbinden wij organisaties met de juiste mensen, met oog voor strategie en een persoonlijke aanpak." data-en="E4 refers to the well-known chess opening: the right first move. That is how we approach recruitment too. As Tech & IT specialists we connect organisations with the right people, with an eye for strategy and a personal approach.">E4 verwijst naar de bekende schaakopening: de juiste openingszet. Zo benaderen wij ook recruitment. Als specialisten in Tech & IT verbinden wij organisaties met de juiste mensen, met oog voor strategie en een persoonlijke aanpak.</p>
+    <a class="about-link" href="/over-ons" data-nl="Lees meer over ons &rarr;" data-en="Learn more about us &rarr;">Lees meer over ons &rarr;</a>
+    <div class="about-photo"><img loading="lazy" src="assets/img/over-ons-foto.jpg" alt=""/></div>
+  </div>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">50+</div>
+      <div class="stat-label" data-nl="Succesvolle plaatsingen in Tech & IT" data-en="Successful placements in Tech & IT">Succesvolle plaatsingen in Tech & IT</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label" data-nl="Gespecialiseerde recruitment diensten" data-en="Specialised recruitment services">Gespecialiseerde recruitment diensten</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label" data-nl="Persoonlijke aanpak, geen massamail" data-en="Personal approach, no mass mailing">Persoonlijke aanpak, geen massamail</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-label" data-nl="Klanten" data-en="Clients">Klanten</div>
+  <h2 data-nl="Wat onze partners zeggen" data-en="What our partners say">Wat onze partners zeggen</h2>
+  <div class="testimonials-grid">
+    <div class="testi-card">
+      <div class="testi-quote" data-nl="E4 begreep precies welk profiel wij zochten en leverde snel de juiste kandidaat." data-en="E4 understood exactly the profile we needed and quickly delivered the right candidate.">E4 begreep precies welk profiel wij zochten en leverde snel de juiste kandidaat.</div>
+      <div class="testi-divider"></div>
+      <div class="testi-head">
+        <div class="testi-avatar">AV</div>
+        <div>
+          <div class="testi-name">Anna de Vries</div>
+          <div class="testi-company">TechFirm B.V.</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote" data-nl="Prettige, persoonlijke samenwerking en echt inhoudelijke kennis van de markt." data-en="Pleasant, personal collaboration and genuine knowledge of the market.">Prettige, persoonlijke samenwerking en echt inhoudelijke kennis van de markt.</div>
+      <div class="testi-divider"></div>
+      <div class="testi-head">
+        <div class="testi-avatar">MJ</div>
+        <div>
+          <div class="testi-name">Mark Janssen</div>
+          <div class="testi-company">CommercialCo</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote" data-nl="Dankzij E4 hadden we binnen enkele weken de juiste specialist aan boord." data-en="Thanks to E4 we had the right specialist on board within weeks.">Dankzij E4 hadden we binnen enkele weken de juiste specialist aan boord.</div>
+      <div class="testi-divider"></div>
+      <div class="testi-head">
+        <div class="testi-avatar">SB</div>
+        <div>
+          <div class="testi-name">Sophie Bakker</div>
+          <div class="testi-company">ScaleUp Ventures</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-left">
+    <div class="cta-label" data-nl="Aan de slag" data-en="Get started">Aan de slag</div>
+    <h2 data-nl="Klaar om de juiste zet te maken?" data-en="Ready to make the right move?">Klaar om de juiste zet te maken?</h2>
+    <p class="cta-body" data-nl="Of u nu tijdelijke capaciteit zoekt, een vaste kracht wilt aannemen of uw recruitment strategisch wilt inrichten, wij denken graag met u mee. Laat hieronder uw gegevens achter." data-en="Whether you need temporary capacity, want to hire permanently or wish to set up your recruitment strategically, we are happy to help. Leave your details below.">Of u nu tijdelijke capaciteit zoekt, een vaste kracht wilt aannemen of uw recruitment strategisch wilt inrichten, wij denken graag met u mee. Laat hieronder uw gegevens achter.</p>
+  </div>
+  <div class="cta-right">
+    <form class="cta-form" name="contact-home" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact-home"/>
+      <p style="display:none;"><label>Niet invullen: <input name="bot-field"/></label></p>
+      <div class="form-field">
+        <label for="h-name" data-nl="Naam" data-en="Name">Naam</label>
+        <input type="text" id="h-name" name="name" required/>
+      </div>
+      <div class="form-field">
+        <label for="h-email" data-nl="E-mailadres" data-en="Email address">E-mailadres</label>
+        <input type="email" id="h-email" name="email" required/>
+      </div>
+      <div class="form-field">
+        <label for="h-message" data-nl="Bericht" data-en="Message">Bericht</label>
+        <textarea id="h-message" name="message" rows="3" required></textarea>
+      </div>
+      <button class="btn-primary" type="submit" style="align-self: flex-start;" data-nl="Versturen" data-en="Send">Versturen</button>
+    </form>
+    <div class="form-success" hidden data-nl="Goede zet, bedankt. We nemen snel contact op." data-en="Good move, thank you. We'll be in touch soon.">Goede zet, bedankt. We nemen snel contact op.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand footer-col">
+      <div class="footer-brand-logo">
+      <img loading="lazy" src="assets/img/logo-white.png" alt="E4 Partners" class="logo-img"/>
+    </div>
+      <div class="footer-tagline" data-nl="Recruitment & Talent Partners, gespecialiseerd in Tech & IT." data-en="Recruitment & Talent Partners, specialised in Tech & IT.">Recruitment & Talent Partners, gespecialiseerd in Tech & IT.</div>
+    </div>
+    <div class="footer-col">
+      <h4 data-nl="Sitemap" data-en="Sitemap">Sitemap</h4>
+      <a href="/" data-nl="Home" data-en="Home">Home</a>
+      <a href="/diensten" data-nl="Diensten" data-en="Services">Diensten</a>
+      <a href="/over-ons" data-nl="Over ons" data-en="About us">Over ons</a>
+      <a href="/cases" data-nl="Cases" data-en="Cases">Cases</a>
+      <a href="/contact" data-nl="Contact" data-en="Contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-nl="Diensten" data-en="Services">Diensten</h4>
+      <a href="/diensten/recruitment-process-outsourcing">Recruitment Process Outsourcing</a>
+      <a href="/diensten/interim-recruitment">Interim Recruitment</a>
+      <a href="/diensten/werving-selectie" data-nl="Werving &amp; Selectie" data-en="Recruitment &amp; Selection">Werving &amp; Selectie</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-nl="Contact" data-en="Contact">Contact</h4>
+      <span>Bingerweg 18F</span>
+      <span>2031 JK Haarlem</span>
+      <a href="mailto:info@e4partners.nl">info@e4partners.nl</a>
+      <a href="tel:[nummer verwijderd]">[nummer verwijderd]</a>
+      <span data-nl="KvK: 93449852" data-en="CoC: 93449852">KvK: 93449852</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-nl="&copy; 2025 E4 Partners. Alle rechten voorbehouden." data-en="&copy; 2025 E4 Partners. All rights reserved.">&copy; 2025 E4 Partners. Alle rechten voorbehouden.</span>
+    <div class="footer-bottom-right">
+      <a href="/privacybeleid" data-nl="Privacybeleid" data-en="Privacy policy">Privacybeleid</a>
+      <a href="/algemene-voorwaarden" data-nl="Algemene voorwaarden" data-en="Terms & conditions">Algemene voorwaarden</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

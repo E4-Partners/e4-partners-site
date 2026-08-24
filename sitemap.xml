@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- LET OP: vervang https://www.e4partners.nl door het definitieve domein zodra dat bekend is. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.e4partners.nl/</loc></url>
+  <url><loc>https://www.e4partners.nl/diensten</loc></url>
+  <url><loc>https://www.e4partners.nl/diensten/recruitment-process-outsourcing</loc></url>
+  <url><loc>https://www.e4partners.nl/diensten/interim-recruitment</loc></url>
+  <url><loc>https://www.e4partners.nl/diensten/werving-selectie</loc></url>
+  <url><loc>https://www.e4partners.nl/over-ons</loc></url>
+  <url><loc>https://www.e4partners.nl/contact</loc></url>
+  <url><loc>https://www.e4partners.nl/cases</loc></url>
+</urlset>
