@@ -79,7 +79,7 @@ document.querySelectorAll('.acc-list').forEach(function (list) {
     tabs.forEach(function (t) { t.classList.toggle('on', t.getAttribute('data-k') === k); });
   }
   tabs.forEach(function (t) { t.addEventListener('click', function () { select(t.getAttribute('data-k')); }); });
-  select('ws');
+  select('rpo'); // matrix opent op de eerste dienst (volgorde: RPO, Interim, W&S)
 })();
 
 // Scroll-reveal: elementen faden zacht omhoog zodra ze in beeld komen
