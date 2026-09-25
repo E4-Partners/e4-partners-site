@@ -158,23 +158,34 @@ nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backd
 .g-sub, .hero-sub { max-width: 620px; font-size: 16px; line-height: 1.7; color: color-mix(in srgb, var(--fg) 82%, transparent); }
 .g-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
 
-.g-badge { position: absolute; z-index: 3; top: 120px; right: var(--pad-x); width: 150px; height: 150px; }
-.g-badge > svg { width: 100%; height: 100%; animation: g-spin 22s linear infinite; }
-.g-badge text { font-family: var(--font); font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; fill: var(--fg); }
-.g-badge-piece { position: absolute; inset: 0; display: grid; place-items: center; color: var(--accent-glow); }
-.g-badge-piece svg { width: 40%; height: auto; fill: currentColor; }
-.g-badge-piece svg.line { fill: none; stroke: currentColor; stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
-@keyframes g-spin { to { transform: rotate(360deg); } }
 
 /* ============ LOGOBANNER (marquee) ============ */
 .logos { background: var(--white); padding: 28px 0 32px; border-top: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); overflow: hidden; }
-.logos-label { padding: 0 var(--pad-x); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dark); margin-bottom: 22px; }
+.logos-label { text-align: center; padding: 0 var(--pad-x); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dark); margin-bottom: 22px; }
 .marquee-viewport { overflow: hidden; }
 .marquee { display: flex; width: max-content; animation: e4marquee 34s linear infinite; }
 .logos:hover .marquee { animation-play-state: paused; }
-.marquee-item { display: flex; align-items: center; justify-content: center; height: 34px; padding: 0 42px; }
-.marquee-logo { height: 30px; width: auto; display: block; filter: grayscale(1); opacity: 0.55; transition: filter 0.25s ease, opacity 0.25s ease; }
+/* Logo's genormaliseerd op beeldoppervlak, niet op hoogte: een breed wordmark
+   en een vierkant logo wegen daardoor optisch even zwaar. Hoogte per logo
+   afgeleid van de verhouding, begrensd op 62px zodat niets uit het kader loopt. */
+.marquee-item { display: flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 180px; height: 68px; padding: 0 20px; }
+.marquee-logo { max-width: 100%; width: auto; object-fit: contain; display: block; filter: grayscale(1); opacity: 0.82; transition: filter 0.25s ease, opacity 0.25s ease; }
 .marquee-logo:hover { filter: none; opacity: 1; }
+
+.marquee-logo[src*="advidi"]        { height: 32px; }
+.marquee-logo[src*="feadship"]      { height: 37px; }
+.marquee-logo[src*="follo"]         { height: 37px; }
+.marquee-logo[src*="xebia"]         { height: 39px; }
+.marquee-logo[src*="sherpa"]        { height: 42px; }
+.marquee-logo[src*="edsn"]          { height: 44px; }
+.marquee-logo[src*="adapta"]        { height: 44px; }
+.marquee-logo[src*="infi"]          { height: 48px; }
+.marquee-logo[src*="bits-of-stock"] { height: 49px; }
+.marquee-logo[src*="dawn"]          { height: 51px; }
+.marquee-logo[src*="illionx"]       { height: 55px; }
+.marquee-logo[src*="i3d-net"]       { height: 62px; }
+.marquee-logo[src*="bris"]          { height: 62px; }
+.marquee-logo[src*="aihr"]          { height: 62px; }
 @keyframes e4marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ============ DIENSTEN-ACCORDION (homepage) ============ */
@@ -193,7 +204,7 @@ nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backd
 .acc-item.open .g-acc-plus::after { transform: rotate(0); }
 .acc-panel { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
 .acc-item.open .acc-panel { max-height: 600px; padding: 0 0 28px 44px; }
-.g-acc-body { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; }
+.g-acc-body { display: grid; grid-template-columns: minmax(0, 720px); gap: 32px; }
 .acc-panel p { font-size: 15px; line-height: 1.7; color: var(--text-dark); margin: 0 0 14px; }
 .g-when { font-weight: 700; color: var(--on-light) !important; }
 .acc-panel .more { display: inline-block; font-size: 14px; font-weight: 700; color: var(--on-light); border-bottom: 2px solid var(--accent); padding-bottom: 2px; transition: transform 0.2s; }
@@ -337,9 +348,9 @@ nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backd
 .team-name { font-family: var(--disp); font-weight: var(--disp-w); letter-spacing: var(--disp-ls); font-size: calc(38px * var(--disp-scale)); line-height: 1; }
 .team-role { font-size: 13px; color: var(--text-dark); margin: 4px 0 14px; }
 
-.about { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .about-body { font-size: 16px; line-height: 1.8; color: color-mix(in srgb, var(--fg) 78%, transparent); }
-.about-photo { margin-top: 32px; border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 10; }
+.about-photo { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; }
 .about-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); }
 .stats { display: flex; flex-direction: column; gap: 16px; }
 .stat { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 32px; }
@@ -418,7 +429,6 @@ footer { background: var(--bg); color: var(--fg); border-top: 1px solid var(--li
   .nav-logo .logo-img { height: 28px; }
   .g-hero { padding-top: 132px; padding-bottom: 72px; }
   .hero { min-height: 0; padding-top: 130px; padding-bottom: 56px; }
-  .g-badge { width: 96px; height: 96px; top: 78px; }
   .g-buttons .g-btn { width: 100%; }
   .g-head { margin-bottom: 32px; }
   .g-acc-body { grid-template-columns: 1fr; gap: 16px; }
@@ -435,5 +445,5 @@ footer { background: var(--bg); color: var(--fg); border-top: 1px solid var(--li
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .marquee, .g-badge > svg, .g-hero-bg, .hero-bg { animation: none !important; }
+  .marquee, .g-hero-bg, .hero-bg { animation: none !important; }
 }

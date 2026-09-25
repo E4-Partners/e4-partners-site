@@ -86,7 +86,15 @@ document.querySelectorAll('.acc-list').forEach(function (list) {
 (function () {
   if (!('IntersectionObserver' in window)) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var sel = '.service-card, .team-card, .testi-card, .case-card, .stat, .info-card, .detail-text, .acc-list, .mx-body, .contact-form, .about-left, .cta-left, .cta-right, .logos, .related-services h2';
+  // Inhoudsblokken, niet hele secties: .g-sec heeft een eigen achtergrondkleur,
+  // dus opacity:0 daarop laat de pagina erdoorheen schijnen (lichte flits op donker).
+  // De quote-sectie staat er bewust niet in: die hoort er gewoon te staan.
+  var sel = [
+    '.g-head', '.g-block', '.g-person', '.g-services-media', '.g-acc-body',   // redesign
+    '.service-card', '.team-card', '.testi-card', '.case-card', '.stat',      // overige pagina's
+    '.info-card', '.detail-text', '.acc-list', '.mx-body', '.contact-form',
+    '.about-left', '.cta-left', '.cta-right', '.logos', '.related-services h2'
+  ].join(', ');
   var els = [].slice.call(document.querySelectorAll(sel));
   if (!els.length) return;
   els.forEach(function (el) {
