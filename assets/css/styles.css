@@ -93,10 +93,10 @@ nav {
   transition: background 0.3s, border-color 0.3s;
 }
 nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom-color: var(--line); }
-.nav-logo { display: flex; align-items: center; }
+.nav-logo { display: flex; align-items: center; font-family: var(--disp); font-weight: 500;
+            font-size: 35px; letter-spacing: -0.04em; line-height: 1; color: var(--fg); }
 .logo-img { width: auto; display: block; }
 .nav-logo .logo-img { height: 34px; }
-.footer-brand-logo .logo-img { height: 26px; }
 .logo-black { display: none; }
 .logo-white { display: block; }
 .nav-links { display: flex; gap: 28px; }
@@ -217,6 +217,11 @@ nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backd
 .g-block { border-radius: var(--radius); padding: 32px; }
 
 /* ============ VERGELIJKING (homepage) ============ */
+/* Compacte statement-sectie: kop verticaal gecentreerd in een lagere band */
+.g-compare { min-height: 340px; display: flex; align-items: center; justify-content: center;
+             padding-top: 56px; padding-bottom: 56px; text-align: center; }
+.g-compare .g-head { margin-bottom: 0; max-width: 900px; }
+.g-compare .g-head > *:last-child { margin-bottom: 0; }
 .g-compare-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 32px; align-items: center; }
 .g-compare h3 { margin-bottom: 14px; }
 .g-compare ul { list-style: none; }
@@ -397,7 +402,8 @@ nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backd
 /* ============ FOOTER ============ */
 footer { background: var(--bg); color: var(--fg); border-top: 1px solid var(--line); padding: 56px var(--pad-x) 0; }
 .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.4fr; gap: 24px; padding-bottom: 36px; border-bottom: 1px solid var(--line); }
-.footer-brand-logo { margin-bottom: 12px; }
+.footer-brand-logo { margin-bottom: 12px; font-family: var(--disp); font-weight: 500;
+                     font-size: 27px; letter-spacing: -0.04em; line-height: 1; color: var(--fg); }
 .footer-tagline { font-size: 13px; color: var(--muted); line-height: 1.6; max-width: 220px; }
 .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg); margin-bottom: 14px; }
 .footer-col a, .footer-col span { display: block; font-size: 13px; color: var(--muted); margin-bottom: 8px; transition: color 0.2s; }
@@ -426,7 +432,7 @@ footer { background: var(--bg); color: var(--fg); border-top: 1px solid var(--li
   :root { --gut: 1rem; --section-y: 72px; }
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
-  .nav-logo .logo-img { height: 28px; }
+  .nav-logo { font-size: 29px; }
   .g-hero { padding-top: 132px; padding-bottom: 72px; }
   .hero { min-height: 0; padding-top: 130px; padding-bottom: 56px; }
   .g-buttons .g-btn { width: 100%; }
@@ -434,6 +440,7 @@ footer { background: var(--bg); color: var(--fg); border-top: 1px solid var(--li
   .g-acc-body { grid-template-columns: 1fr; gap: 16px; }
   .acc-item.open .acc-panel { padding-left: 0; }
   .g-block, .info-card, .case-card, .mx-right, .related-grid .service-card { padding: 24px; }
+  .g-compare { min-height: 240px; padding-top: 44px; padding-bottom: 44px; }
   .g-compare-grid { grid-template-columns: 1fr; gap: 20px; }
   .g-vs { text-align: center; font-size: 40px; }
   .g-steps ol, .g-team-grid, .services-grid, .related-grid, .team-grid, .case-pair { grid-template-columns: 1fr; }
