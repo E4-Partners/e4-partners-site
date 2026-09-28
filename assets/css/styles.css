@@ -95,10 +95,6 @@ nav {
 nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom-color: var(--line); }
 .nav-logo { display: flex; align-items: center; font-family: var(--disp); font-weight: 500;
             font-size: 35px; letter-spacing: -0.04em; line-height: 1; color: var(--fg); }
-.logo-img { width: auto; display: block; }
-.nav-logo .logo-img { height: 34px; }
-.logo-black { display: none; }
-.logo-white { display: block; }
 .nav-links { display: flex; gap: 28px; }
 .nav-links a { position: relative; font-size: 13px; font-weight: 500; color: var(--fg); }
 .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -4px; height: 1.5px; width: 0; background: currentColor; transition: width 0.25s ease; }
