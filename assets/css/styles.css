@@ -177,7 +177,7 @@ nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backd
 .marquee-logo[src*="adapta"]        { height: 44px; }
 .marquee-logo[src*="infi"]          { height: 48px; }
 .marquee-logo[src*="bits-of-stock"] { height: 49px; }
-.marquee-logo[src*="dawn"]          { height: 51px; }
+.marquee-logo[src*="dawn"]          { height: 62px; }
 .marquee-logo[src*="illionx"]       { height: 55px; }
 .marquee-logo[src*="i3d-net"]       { height: 62px; }
 .marquee-logo[src*="bris"]          { height: 62px; }
@@ -362,31 +362,67 @@ nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backd
 .contact-section { display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px; align-items: start; }
 
 /* ============ CASES ============ */
-.cases-section { display: flex; flex-direction: column; gap: 20px; }
+.cases-section { display: flex; flex-direction: column; gap: 14px; }
 .cases-section .section-label { margin-bottom: 0; }
-.cases-section h2 { margin-bottom: 28px; }
-.case-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.cases-more { display: flex; flex-direction: column; gap: 20px; }
+.cases-section h2 { margin-bottom: 18px; }
+
+.case-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.cases-more { display: flex; flex-direction: column; gap: 14px; }
 .cases-more[hidden] { display: none; }
-.case-card { position: relative; display: flex; flex-direction: column; justify-content: space-between; background: var(--bg); color: var(--fg); border-radius: var(--radius); padding: 32px; }
-.case-card.big { display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: start; }
-.case-logo { width: 110px; height: 48px; background: var(--white); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 10px; letter-spacing: 0.1em; color: var(--text-dark); margin-bottom: 16px; overflow: hidden; }
-.case-logo img { max-width: 82%; max-height: 70%; width: auto; height: auto; object-fit: contain; }
-.case-logo.sm { width: 88px; height: 40px; margin-bottom: 0; flex-shrink: 0; }
-.case-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-.case-company { font-family: var(--disp); font-weight: var(--disp-w); letter-spacing: -0.03em; font-size: 22px; margin-bottom: 4px; }
-.case-card.big .case-company { font-size: 26px; }
-.case-meta { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
-.case-head .case-meta { margin-bottom: 0; }
-.case-tag { display: inline-block; align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg); border: 1px solid var(--line); border-radius: var(--pill); padding: 5px 12px; margin-bottom: 16px; }
-.case-desc { font-size: 15px; line-height: 1.75; color: color-mix(in srgb, var(--fg) 72%, transparent); margin-bottom: 20px; }
-.case-quotewrap { border-top: 1px solid var(--line); padding-top: 18px; margin-top: auto; }
-.case-quote { font-family: var(--disp); font-weight: var(--disp-w); letter-spacing: -0.03em; font-size: 20px; line-height: 1.35; margin-bottom: 8px; }
-.case-card.big .case-quote { font-size: 24px; }
-.case-attr { font-size: 12px; color: var(--muted); }
-.cases-more-wrap { display: flex; justify-content: center; margin-top: 12px; }
-.cases-more-chev { width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translate(-1px,-1px); transition: transform 0.25s; }
+
+/* Twee kolommen: links logo + bron, rechts het citaat */
+.case-card, .case-card.big { position: relative; overflow: hidden; background: var(--bg);
+  color: var(--fg); border-radius: var(--radius); display: grid;
+  grid-template-columns: 148px 1fr; gap: 28px; align-items: start; padding: 2.2rem 2.4rem; }
+.case-card.big { grid-template-columns: 200px 1fr; gap: 56px; padding: 3rem 3.2rem; }
+
+.case-left { display: flex; flex-direction: column; }
+.case-logo { display: flex; align-items: center; justify-content: flex-start;
+  width: auto; height: 42px; margin: 0 0 18px; overflow: hidden; }
+.case-card.big .case-logo { height: 60px; margin-bottom: 24px; }
+.case-logo img { max-height: 100%; max-width: 100%; width: auto; object-fit: contain;
+  object-position: left center; filter: grayscale(1) brightness(0) invert(1); opacity: .9; }
+
+.case-attr { font-family: var(--font); font-size: 12px; color: var(--muted); line-height: 1.5; margin: 0; }
+.case-attr b { display: block; font-weight: 600; color: var(--fg); font-size: 13px;
+  letter-spacing: -0.015em; margin-bottom: 3px; }
+.case-card.big .case-attr { font-size: 14px; }
+.case-card.big .case-attr b { font-size: 16px; }
+
+/* Negatieve marge compenseert regelafstand + letterhoogte, zodat de eerste regel
+   van het citaat optisch gelijk ligt met de bovenkant van het logo. */
+.case-quotewrap { border: 0; padding: 0; margin: 0; }
+.case-quote { font-family: var(--disp); font-weight: 500; letter-spacing: -0.03em;
+  font-size: 18px; line-height: 1.5; color: var(--fg); margin: -9px 0 0; }
+.case-card.big .case-quote { font-size: 28px; line-height: 1.38; letter-spacing: -0.035em;
+  margin-top: -13px; }
+
+/* Nog in te vullen kaarten: gedempt zodat ze niet als echte case lezen.
+   Via kleur en niet via opacity, want .reveal.is-visible zet opacity terug op 1. */
+.case-placeholder .case-quote,
+.case-placeholder .case-attr,
+.case-placeholder .case-attr b { color: color-mix(in srgb, var(--fg) 32%, transparent); }
+.case-placeholder .case-logo { background: color-mix(in srgb, var(--fg) 8%, transparent);
+  border-radius: 6px; width: 96px; }
+
+.cases-more-wrap { display: flex; justify-content: center; margin-top: 10px; }
+.cases-more-btn { display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
+  font-family: var(--font); font-size: 13px; font-weight: 700; color: var(--on-accent);
+  background: var(--accent); border: 0; border-radius: var(--pill); padding: 12px 26px;
+  transition: background 0.2s, transform 0.18s; }
+.cases-more-btn:hover { background: var(--bg); transform: translateY(-2px); }
+.cases-more-chev { width: 8px; height: 8px; border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor; transform: rotate(45deg) translate(-1px,-1px);
+  transition: transform 0.25s; }
 .cases-more-btn.open .cases-more-chev { transform: rotate(-135deg) translate(-1px,-1px); }
+
+@media (max-width: 900px) {
+  .case-card, .case-card.big { grid-template-columns: 1fr; gap: 22px; padding: 1.9rem 1.7rem; }
+  .case-card.big .case-quote { font-size: 21px; margin-top: 0; }
+  .case-quote { font-size: 17px; margin-top: 0; }
+  .case-card.big .case-logo { height: 46px; }
+}
+@media (max-width: 560px) { .case-pair { grid-template-columns: 1fr; } }
 
 /* ============ JURIDISCHE PAGINA'S ============ */
 .legal-content > * { max-width: 760px; }
