@@ -68,8 +68,9 @@ document.querySelectorAll('.acc-list').forEach(function (list) {
 (function () {
   var tabs = document.querySelectorAll('.mx-tab');
   if (!tabs.length) return;
-  // Factoren: vacaturevolume · integratie · duur · snelheid van impact · flexibiliteit · vrijblijvend starten
-  var VALS = { rpo: [90,85,90,50,70,25], ir: [55,90,55,90,90,60], ws: [20,15,25,55,35,95] };
+  // Factoren: vacaturevolume · integratie · snelheid van impact · continuïteit · kosten per hire
+  // Let op: op 'kosten per hire' betekent hoog duurder, niet beter.
+  var VALS = { rpo: [90,85,50,90,30], ir: [55,90,90,45,50], ws: [20,15,55,25,85] };
   var markers = document.querySelectorAll('.mx-marker');
   var panels = document.querySelectorAll('.mx-panel');
   function select(k) {
