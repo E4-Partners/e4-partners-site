@@ -136,7 +136,7 @@ nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backd
 .hero { min-height: 68vh; padding: 150px var(--pad-x) 72px; }
 .g-hero-bg, .hero-bg {
   position: absolute; inset: 0;
-  background: url("../img/hero.jpg") center 30% / cover, var(--bg); background-blend-mode: luminosity;
+  background: url("../img/hero.jpg?v=3") center 28% / cover, var(--bg); background-blend-mode: luminosity;
   filter: contrast(1.1); transform: scale(1.06); animation: g-zoom 14s ease-out forwards;
 }
 .g-hero-bg::after, .hero-overlay {
@@ -241,8 +241,8 @@ nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backd
 /* ============ TEAM (homepage) ============ */
 .g-team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .g-person { position: relative; display: block; border-radius: var(--radius); overflow: hidden; aspect-ratio: 3 / 4; color: var(--fg); }
-.g-person img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: filter 0.4s, transform 0.5s; }
-.g-person:hover img { filter: none; transform: scale(1.04); }
+.g-person img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.g-person:hover img { transform: scale(1.04); }
 .g-person::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, color-mix(in srgb, var(--bg) 88%, transparent)); }
 .g-person-meta { position: absolute; z-index: 1; left: 24px; right: 24px; bottom: 22px; display: flex; flex-direction: column; }
 .g-person-name { font-family: var(--disp); font-weight: var(--disp-w); letter-spacing: var(--disp-ls); font-size: calc(38px * var(--disp-scale)); line-height: 1; }
@@ -353,8 +353,8 @@ nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backd
 .team-card { display: flex; flex-direction: column; overflow: hidden; background: var(--white); border: 1px solid var(--line-light); border-radius: var(--radius); transition: transform 0.22s, box-shadow 0.22s; }
 .team-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px color-mix(in srgb, var(--on-light) 10%, transparent); }
 .team-photo { aspect-ratio: 4 / 5; overflow: hidden; background: var(--bg); }
-.team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; filter: grayscale(1); transition: filter 0.4s, transform 0.5s; }
-.team-card:hover .team-photo img { filter: none; transform: scale(1.03); }
+.team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; transition: transform 0.5s; }
+.team-card:hover .team-photo img { transform: scale(1.03); }
 .team-body { display: flex; flex-direction: column; gap: 4px; padding: 24px; color: var(--on-light); }
 .team-name { font-family: var(--disp); font-weight: var(--disp-w); letter-spacing: var(--disp-ls); font-size: calc(38px * var(--disp-scale)); line-height: 1; }
 .team-role { font-size: 13px; color: var(--text-dark); margin: 4px 0 14px; }
