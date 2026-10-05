@@ -70,7 +70,7 @@ document.querySelectorAll('.acc-list').forEach(function (list) {
   if (!tabs.length) return;
   // Factoren: vacaturevolume · integratie · snelheid van impact · continuïteit · kosten per hire
   // Let op: op 'kosten per hire' betekent hoog duurder, niet beter.
-  var VALS = { rpo: [90,85,50,90,30], ir: [55,90,90,45,50], ws: [20,15,55,25,85] };
+  var VALS = { rpo: [75,60,25,90,20], ir: [75,95,80,50,50], ws: [20,10,80,25,80] };
   var markers = document.querySelectorAll('.mx-marker');
   var panels = document.querySelectorAll('.mx-panel');
   function select(k) {
