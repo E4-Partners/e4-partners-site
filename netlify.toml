@@ -1,0 +1,20 @@
+# Netlify-configuratie voor de E4 Partners-site.
+#
+# Dit bestand bepaalt hoe Netlify de site bouwt en uitserveert. Staat het in de repo,
+# dan hoeft er in de Netlify-interface niets ingevuld te worden: deze waarden winnen
+# altijd van wat daar staat. Handig, want zo is de configuratie versiebeheerd en
+# hoeft niemand te onthouden wat hij ook alweer in een formulier had gezet.
+
+[build]
+  # De site is platte HTML zonder build step - zie CLAUDE.md sectie 1.
+  # Er valt dus niets te bouwen; Netlify publiceert de repo zoals hij is.
+  command = ""
+  publish = "."
+
+# Beveiligingsheaders. Netlify zet deze niet uit zichzelf.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
