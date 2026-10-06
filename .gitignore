@@ -8,3 +8,6 @@
 # Editor
 .vscode/
 .idea/
+
+# Interne aantekeningen: bewust niet in de publieke repo
+INTERN.md
