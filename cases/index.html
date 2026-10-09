@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Symbols+2&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="../assets/css/styles.css?v=22243"/>
+<link rel="stylesheet" href="../assets/css/styles.css?v=22252"/>
 </head>
 <body>
 
@@ -67,7 +67,7 @@
 
     <article class="case-card big" data-num="1">
       <div class="case-left">
-        <div class="case-logo"><img loading="lazy" src="../assets/img/logos/i3d-net.png" alt="i3D.net &middot; Ubisoft"/></div>
+        <div class="case-logo"><img loading="lazy" src="../assets/img/logos/i3d-net.png?v=2" alt="i3D.net &middot; Ubisoft"/></div>
         <div class="case-attr"><b>Rick Sloot</b>CEO &middot; i3D.net &middot; Ubisoft</div>
       </div>
       <div class="case-quotewrap">
@@ -78,7 +78,7 @@
   <div class="case-pair">
       <article class="case-card" data-num="2">
         <div class="case-left">
-          <div class="case-logo"><img loading="lazy" src="../assets/img/logos/edsn.png" alt="EDSN"/></div>
+          <div class="case-logo"><img loading="lazy" src="../assets/img/logos/edsn.png?v=2" alt="EDSN"/></div>
           <div class="case-attr"><b>Arthur Schrijver</b>People Manager &middot; EDSN</div>
         </div>
         <div class="case-quotewrap">
@@ -87,7 +87,7 @@
       </article>
       <article class="case-card" data-num="3">
         <div class="case-left">
-          <div class="case-logo"><img loading="lazy" src="../assets/img/logos/dawn.png" alt="Dawn Technology"/></div>
+          <div class="case-logo"><img loading="lazy" src="../assets/img/logos/dawn.png?v=2" alt="Dawn Technology"/></div>
           <div class="case-attr"><b>Chantal van der Mark</b>CPO &middot; Dawn Technology</div>
         </div>
         <div class="case-quotewrap">
@@ -96,57 +96,15 @@
       </article>
   </div>
 
-  <!-- Nog in te vullen: 4 plekken, zichtbaar na klik op "Bekijk meer cases".
-       Vervang de inhoud zodra er nieuwe quotes zijn, of verwijder de ongebruikte
-       kaarten én de uitklapknop als er geen bijkomen. -->
-  <div class="cases-more" id="casesMore" hidden>
-    <article class="case-card case-placeholder big" data-num="4">
+    <article class="case-card big mirror" data-num="4">
       <div class="case-left">
-        <div class="case-logo"></div>
-        <div class="case-attr"><b>Naam</b>Functie &middot; Organisatie</div>
+        <div class="case-logo"><img loading="lazy" src="../assets/img/logos/follo.png?v=2" alt="Follo"/></div>
+        <div class="case-attr"><b>Joris Drok</b>Operationeel Directeur &middot; Follo</div>
       </div>
       <div class="case-quotewrap">
-        <blockquote class="case-quote" data-nl="Hier komt de volgende klantquote." data-en="The next client quote goes here.">Hier komt de volgende klantquote.</blockquote>
+        <blockquote class="case-quote" data-nl="&ldquo;Van senior rollen tot nichefuncties in het e-commercelandschap: Jens nam de regie en vond snel sterke mensen voor ons. Professioneel, scherp, communicatief sterk en gewoon een fijne kerel om mee te werken. Ik kan Jens niet genoeg aanbevelen!&rdquo;" data-en="&ldquo;From senior roles to niche positions across the e-commerce landscape, Jens took ownership and landed us great hires fast. Professional, sharp, communicatively strong and just a great guy to work with. I can&rsquo;t recommend Jens enough!&rdquo;">&ldquo;Van senior rollen tot nichefuncties in het e-commercelandschap: Jens nam de regie en vond snel sterke mensen voor ons. Professioneel, scherp, communicatief sterk en gewoon een fijne kerel om mee te werken. Ik kan Jens niet genoeg aanbevelen!&rdquo;</blockquote>
       </div>
     </article>
-
-    <div class="case-pair">
-      <article class="case-card case-placeholder" data-num="5">
-        <div class="case-left">
-          <div class="case-logo"></div>
-          <div class="case-attr"><b>Naam</b>Functie &middot; Organisatie</div>
-        </div>
-        <div class="case-quotewrap">
-          <blockquote class="case-quote" data-nl="Hier komt de volgende klantquote." data-en="The next client quote goes here.">Hier komt de volgende klantquote.</blockquote>
-        </div>
-      </article>
-      <article class="case-card case-placeholder" data-num="6">
-        <div class="case-left">
-          <div class="case-logo"></div>
-          <div class="case-attr"><b>Naam</b>Functie &middot; Organisatie</div>
-        </div>
-        <div class="case-quotewrap">
-          <blockquote class="case-quote" data-nl="Hier komt de volgende klantquote." data-en="The next client quote goes here.">Hier komt de volgende klantquote.</blockquote>
-        </div>
-      </article>
-    </div>
-
-    <article class="case-card case-placeholder big" data-num="7">
-      <div class="case-left">
-        <div class="case-logo"></div>
-        <div class="case-attr"><b>Naam</b>Functie &middot; Organisatie</div>
-      </div>
-      <div class="case-quotewrap">
-        <blockquote class="case-quote" data-nl="Hier komt de volgende klantquote." data-en="The next client quote goes here.">Hier komt de volgende klantquote.</blockquote>
-      </div>
-    </article>
-  </div>
-
-  <div class="cases-more-wrap">
-    <button class="cases-more-btn" id="casesMoreBtn" type="button" aria-expanded="false" aria-controls="casesMore">
-      <span data-nl="Bekijk meer cases" data-en="View more cases">Bekijk meer cases</span><span class="cases-more-chev"></span>
-    </button>
-  </div>
 </section>
 
 <!-- CTA -->
@@ -206,7 +164,7 @@
   </div>
 </footer>
 
-<script src="../assets/js/main.js?v=22243"></script>
+<script src="../assets/js/main.js?v=22252"></script>
 
 </body>
 </html>

@@ -56,7 +56,7 @@ Een HTML-bestand rechtstreeks vanaf schijf openen werkt niet: `/diensten` resolv
 │   └── werving-selectie/
 ├── over-ons/                               team + strategieblok
 ├── contact/                                formulier + gegevens
-├── cases/                                  klantquotes, uitklapbaar
+├── cases/                                  4 klantquotes
 ├── privacybeleid/                          noindex
 └── algemene-voorwaarden/                   noindex
 ```
@@ -106,11 +106,23 @@ Houd de verwijzing subtiel.
 > `og-image.jpg` sluit nog niet aan op de hero. Wie de social preview wil laten
 > matchen, maakt daar een uitsnede van `hero.jpg` van (1200×630).
 
-**Beeld:** vrijwel alles staat in grijstinten (`filter: grayscale(1)`) — klantlogo's,
-dienstfoto's, sfeerfoto's — zodat het tweekleurenpalet overeind blijft. **Uitzondering:
-de drie partnerportretten**, die bewust in kleur staan. Op een pagina over mensen werkt
-dat beter, en de haag op de achtergrond geeft die sectie kleur in een verder
-navy-crème pagina. Haal die kleur niet terug naar grijs zonder overleg.
+**Beeld: foto's staan in kleur, logo's in grijstinten.** Sinds oktober 2026 staan alle
+foto's — de partnerportretten, de dienstfoto's, de sfeerfoto's op de homepage en Over
+ons — gewoon in kleur. Eerder lag er een `filter: grayscale(1)` overheen; dat is er
+bewust afgehaald. Zet het niet terug zonder overleg.
+
+De **klantlogo's** blijven wél grijs, in de marquee op de homepage en op de
+cases-pagina. Veertien merklogo's in hun eigen kleuren naast elkaar wordt rommelig en
+trekt de aandacht weg van de tekst.
+
+Foto's zijn 2000px breed op kwaliteit 80 — de breedbeeldfoto's op de dienstpagina's
+staan tot 1240px in beeld, dus met minder resolutie ogen ze zichtbaar zacht op een
+scherp scherm. Het verschil in bestandsgrootte tussen kwaliteit 68 en 80 is klein,
+want het gewicht zit in de resolutie.
+
+De uitsnede van de breedbeeldfoto's (`.section-photo img`) staat per dienst apart
+ingesteld. Een láger percentage in `object-position` toont meer van de bovenkant van
+de foto, een hóger percentage meer van de onderkant.
 
 **Responsive breakpoints:** 1024px (tablet) en 768px (mobiel). Enkele componenten
 gebruiken 900px of 560px waar dat beter uitkomt.
@@ -158,6 +170,21 @@ matrix-omschrijvingen, meta-descriptions) en zijn **woordelijk gelijk**. Wijzig 
 Woordkeuze: "oplossing" (niet "vorm" of "opening"), "behoefte", "vraagstuk" (niet "rol
 of vraag"). Werving & Selectie gaat over **snelheid** op urgente vacatures, niet alleen
 over kwaliteit.
+
+### Cases
+
+Vier echte klantquotes, in het ritme groot – twee klein – groot. De laatste kaart heeft
+de class `mirror`: logo en bron staan rechts, het citaat links. Dat geeft de reeks ritme
+zonder dat de DOM-volgorde verandert; op mobiel draait de spiegeling vanzelf terug.
+
+De placeholderkaarten en de knop "Bekijk meer cases" zijn in oktober 2026 verwijderd,
+inclusief de bijbehorende CSS en de JS-module. Komen er cases bij, voeg dan gewoon een
+`<article class="case-card">` toe en houd het ritme aan.
+
+Logo's in de kaarten zijn genormaliseerd op **gelijk vlak**, niet op gelijke hoogte.
+Een breed woordmerk op dezelfde hoogte als een vierkant beeldmerk oogt veel zwaarder —
+daarom heeft Follo een eigen hoogte. Voeg je een logo toe, meet dan `width × height`
+in de browser en vergelijk met de bestaande (~4200 px² op een grote kaart).
 
 ### Links
 
@@ -228,7 +255,6 @@ Alles vanilla, geen libraries. Modules, in volgorde:
 | Dienstenmatrix | `/diensten`, tabs verschuiven de stippen |
 | Scroll-reveal | IntersectionObserver, faded elementen in |
 | Logo-marquee | dupliceert de logoset voor een naadloze loop |
-| Cases uitklappen | 3 zichtbaar → 7 |
 
 ### Scroll-reveal: sloop deze check niet
 

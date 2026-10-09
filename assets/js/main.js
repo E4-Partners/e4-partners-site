@@ -122,24 +122,3 @@ document.querySelectorAll('.acc-list').forEach(function (list) {
   var lm = document.getElementById('logoMarquee');
   if (lm) lm.innerHTML += lm.innerHTML;
 })();
-
-// Cases: "Bekijk meer cases" uitklappen
-(function () {
-  var btn = document.getElementById('casesMoreBtn');
-  var wrap = document.getElementById('casesMore');
-  if (!btn || !wrap) return;
-  var lbl = btn.querySelector('span[data-nl]');
-  btn.addEventListener('click', function () {
-    var isOpen = !wrap.hidden;
-    wrap.hidden = isOpen;
-    btn.classList.toggle('open', !isOpen);
-    btn.setAttribute('aria-expanded', String(!isOpen));
-    if (lbl) {
-      lbl.setAttribute('data-nl', isOpen ? 'Bekijk meer cases' : 'Toon minder');
-      lbl.setAttribute('data-en', isOpen ? 'View more cases' : 'Show less');
-      lbl.textContent = (document.documentElement.lang === 'en')
-        ? (isOpen ? 'View more cases' : 'Show less')
-        : (isOpen ? 'Bekijk meer cases' : 'Toon minder');
-    }
-  });
-})();
