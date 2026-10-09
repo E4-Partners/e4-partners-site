@@ -154,7 +154,6 @@ nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backd
 .g-sub, .hero-sub { max-width: 620px; font-size: 16px; line-height: 1.7; color: color-mix(in srgb, var(--fg) 82%, transparent); }
 .g-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
 
-
 /* ============ LOGOBANNER (marquee) ============ */
 .logos { background: var(--white); padding: 28px 0 32px; border-top: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); overflow: hidden; }
 .logos-label { text-align: center; padding: 0 var(--pad-x); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dark); margin-bottom: 22px; }
@@ -408,6 +407,8 @@ nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backd
 /* Follo is een breed woordmerk: op 60px hoog beslaat het bijna drie keer zoveel
    vlak als i3D.net op dezelfde kaart. Apart genormaliseerd op gelijk oppervlak. */
 .case-card.big .case-logo:has(img[src*="follo"]) { height: 36px; }
+.case-card.big .case-logo:has(img[src*="illionx"]) { height: 52px; }
+
 .case-logo img { max-height: 100%; max-width: 100%; width: auto; object-fit: contain;
   object-position: left center; filter: grayscale(1) brightness(0) invert(1); opacity: .9; }
 
