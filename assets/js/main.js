@@ -40,7 +40,14 @@ function showFormSuccess(form) {
   form.style.display = 'none';
   if (msg) { msg.hidden = false; msg.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
 }
-document.querySelectorAll('form[data-netlify]').forEach(function (form) {
+// Selecteer op het verborgen form-name-veld, niet op data-netlify: zodra
+// formulierdetectie in Netlify aanstaat, haalt de buildstap data-netlify en
+// netlify-honeypot uit de HTML. Lokaal werkt het dan wel en live niet, en dan
+// doet het formulier een gewone POST - de bezoeker verlaat de pagina en ziet
+// de bevestiging nooit. Het form-name-veld blijft wel staan.
+document.querySelectorAll('input[name="form-name"]').forEach(function (veld) {
+  var form = veld.form || veld.closest('form');
+  if (!form) return;
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var body = new URLSearchParams(new FormData(form)).toString();

@@ -288,6 +288,12 @@ Bevestigingstekst: "Goede zet, bedankt. We nemen snel contact op."
 > Netlify scant de HTML op formulieren tijdens de build; staat die schakelaar uit,
 > dan doen alle drie de formulieren niets.
 
+> **Staat die detectie aan, dan haalt Netlify `data-netlify` en `netlify-honeypot`
+> uit de HTML.** `main.js` selecteert daarom op het verborgen `form-name`-veld en
+> niet op `data-netlify`. Doe je dat laatste toch, dan werkt het formulier lokaal
+> prima en live niet: de bezoeker verlaat de pagina en ziet de bevestiging nooit.
+> Dit is in oktober 2026 een keer live misgegaan.
+
 Build- en headerinstellingen staan in `netlify.toml`: geen build command, publish
 directory `.`. Die waarden winnen van wat er in de Netlify-interface staat.
 
