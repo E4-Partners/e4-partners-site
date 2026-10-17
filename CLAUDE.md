@@ -145,7 +145,7 @@ gezet in plaats van de inhoud.
 
 > **Voeg je tekst toe, geef die dan altijd beide attributen.** Anders blijft die
 > Nederlands staan in EN-modus. Dat is eerder misgegaan met de dienstnaam
-> "Werving & Selectie" (EN: "Recruitment & Selection").
+> "Werving & Selectie" (EN: "Permanent Recruitment").
 
 `<title>`-tags worden **niet** vertaald — bewuste beperking van de huidige opzet.
 
@@ -163,12 +163,16 @@ Vaste formuleringen, overal hetzelfde:
 | Bevestiging na verzenden | "Goede zet, bedankt. We nemen snel contact op." |
 | Footer-tagline | "De juiste zet in recruitment" |
 
+In het Engels luidt het contactblok overal: "Tell us what challenge you are facing.
+We'd love to think along."
+
 De dienstomschrijvingen staan op vier plekken (homepage-accordeon, dienstenkaarten,
 matrix-omschrijvingen, meta-descriptions) en zijn **woordelijk gelijk**. Wijzig je er
 één, wijzig ze dan alle vier.
 
 Woordkeuze: "oplossing" (niet "vorm" of "opening"), "behoefte", "vraagstuk" (niet "rol
-of vraag"). Werving & Selectie gaat over **snelheid** op urgente vacatures, niet alleen
+of vraag"), "geïntegreerd" (niet "embedded" — in het Nederlands; de Engelse tekst
+houdt "embedded"). Werving & Selectie gaat over **snelheid** op urgente vacatures, niet alleen
 over kwaliteit.
 
 ### Cases
